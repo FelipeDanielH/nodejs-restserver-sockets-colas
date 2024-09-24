@@ -42,7 +42,8 @@ class Server {
     sockets() {
 
         this.io.on('connection', socketController );
-
+        console.log("entro al controller")
+        
     }
 
     listen() {

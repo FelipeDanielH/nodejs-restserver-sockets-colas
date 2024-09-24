@@ -1,5 +1,8 @@
+const TicketControl = require('../models/ticket-control');
 
 
+// se crea el objeto de ticket control para utilizar sus metodos. Tambien, con tan solo crear el objeto, se ejecuta el constructor que ejecuta el metodo init() 
+const ticketControl = new TicketControl();
 
 const socketController = (socket) => {
     
@@ -15,7 +18,6 @@ const socketController = (socket) => {
         callback( id );
 
         socket.broadcast.emit('enviar-mensaje', payload );
-
     })
 
 }
