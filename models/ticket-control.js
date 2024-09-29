@@ -64,7 +64,7 @@ class TicketControl {
 
         //finalmente se graba en la base de datos 
         this.guardarDB();
-        return "Ticket" + ticket.numero;
+        return "Ticket: " + ticket.numero;
     }
 
     atenderTicket( escritorio ) { // recibe un escritorio que es la persona quien atendio el ticket 
@@ -75,7 +75,7 @@ class TicketControl {
         }
 
         // toma el primer ticket para quitarlo de la lista
-        const ticket = this.tickets.shift() // shift es para remover el primer elemento de un arreglo tickets[0] y lo retorna
+        const ticket = this.tickets.shift(); // shift es para remover el primer elemento de un arreglo tickets[0] y lo retorna
 
         ticket.escritorio = escritorio; // asigna el escritorio del elemento que acabamos de eliminar de los tickets
 
