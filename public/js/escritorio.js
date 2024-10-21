@@ -28,7 +28,12 @@ socket.on('ultimo-ticket',(ultimoTicket) => {
     // lblNuevoTicket.innerText = 'Ticket: ' + ultimoTicket;
 })
 
+
 btnAtender.addEventListener( 'click', () => {
+    
+    socket.emit( 'atender-ticket', { escritorio }, ( payload ) => {
+        console.log(payload);
+    });
 
     // La definicion del listener 'siguiente ticket' esta en '../sockets/controller.js'
     // socket.emit( 'siguiente-ticket', null, ( ticket ) => {

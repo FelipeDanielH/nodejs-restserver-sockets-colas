@@ -69,7 +69,7 @@ class TicketControl {
 
     atenderTicket( escritorio ) { // recibe un escritorio que es la persona quien atendio el ticket 
 
-        // si no hay tickets simplemente retorna null   
+        // si no hay tickets simplemente retorna null
         if (this.tickets.length === 0) {
             return null;
         }

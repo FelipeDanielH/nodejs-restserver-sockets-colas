@@ -1,3 +1,7 @@
+/* 
+    Este archivo solo se utiliza como referencia y no tiene ninguna utilidad dentro del codigo
+*/
+
 
 // Referencias del HTML
 const lblOnline  = document.querySelector('#lblOnline');

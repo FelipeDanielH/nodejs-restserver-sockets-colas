@@ -23,6 +23,26 @@ const socketController = (socket) => {
         // TODO Notificar que hay un nuevo ticket pendiente de asignar
     })
 
+    
+    socket.on('atender-ticket', ({escritorio}, callback ) => { // Desde el payload (sabiendo que desde el emit que esta en escritorio.js se mandara la variable escritorio) se desestructura directamente escritorio
+        if ( !escritorio) {
+            return callback({
+                ok: false,
+                msg: 'El escritorio es obligatorio'
+            })
+        }
+        
+        const ticket = ticketControl.atenderTicket( escritorio );
+
+        if( !ticket ) {
+            callback({
+                ok: false,
+                msg: 'Ya no hay tickets pendientes'
+            });
+        }
+
+        callback( ticket );
+    })
 }
 
 module.exports = {
