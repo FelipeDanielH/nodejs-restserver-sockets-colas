@@ -13,6 +13,11 @@ const socket = io();
 
 socket.on('estado-actual', (payload) => { // El payload en este caso son los ultimos 4 tickets (se puede comprobar dentro de socketsController en controller.js)
 
+
+    const audio = new Audio('./audio/new-ticket.mp3'); //audio es una clase del navegador web
+    audio.play();
+
+
     // Como establecimos anteriormente, el payload seria un arreglo de 4 tickets, por lo que se procede a desestructurarlos
     const [ticket1, ticket2, ticket3, ticket4] = payload;
 
