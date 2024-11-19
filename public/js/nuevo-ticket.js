@@ -17,13 +17,11 @@ socket.on('disconnect', () => {
 
 socket.on('ultimo-ticket',(ultimoTicket) => {
     lblNuevoTicket.innerText = 'Ticket: ' + ultimoTicket;
-})
+});
 
 btnCrear.addEventListener( 'click', () => {
-
     // La definicion del listener 'siguiente ticket' esta en '../sockets/controller.js'
     socket.emit( 'siguiente-ticket', null, ( ticket ) => {
         lblNuevoTicket.innerText = ticket;
     });
-
 });

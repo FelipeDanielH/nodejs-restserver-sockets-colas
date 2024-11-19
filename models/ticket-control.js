@@ -40,7 +40,7 @@ class TicketControl {
 
     // metodo para inicializar la clase (servidor)
     init() {
-        const { hoy, tickets, ultimo, ultimos4 } = require('../db/data.json'); // con esta linea podemos convertir todo el archivo json a objeto literal de javascript donde podremos consultar tanto datos como propiedads tal cual un objeto normal 
+        const { hoy, tickets, ultimo, ultimos4 } = require('../db/data.json'); // con esta linea podemos convertir todo el archivo json a objeto literal de javascript donde podremos consultar tanto datos como propiedads tal cual un objeto normal
         if (hoy === this.hoy) { // si la data del dia que esta en la base de datos coincide con la data que esta guardada en la variable de esta clase (correspondiente al dia de hoy) entonces se guardan todos los datos de la bd en las variables de esta clase
             this.tickets = tickets;
             this.ultimo = ultimo;
@@ -62,14 +62,15 @@ class TicketControl {
         const ticket = new Ticket(this.ultimo, null); // se crea una nueva clase de tipo ticket, se le asigna el numero siguiente y null que significa que nadie esta viendo este ticket
         this.tickets.push(ticket);
 
-        //finalmente se graba en la base de datos 
+        // finalmente se graba en la base de datos
         this.guardarDB();
         return "Ticket: " + ticket.numero;
     }
 
-    atenderTicket( escritorio ) { // recibe un escritorio que es la persona quien atendio el ticket 
+    atenderTicket( escritorio ) { // recibe un escritorio que es la persona quien atendio el ticket
 
-        // si no hay tickets simplemente retorna null   
+        
+        // si no hay tickets simplemente retorna null
         if (this.tickets.length === 0) {
             return null;
         }
@@ -82,7 +83,8 @@ class TicketControl {
         this.ultimos4.unshift( ticket ); // unshift añade al principio de un arreglo el elemento pasado por parametro
 
         // si hay mas de 4 tickets entonces se eliminara el ultimo
-        if( this.ultimos4.lenght > 4 ){
+        
+        if( this.ultimos4.length > 4 ){
             this.ultimos4.splice(-1,1); // splice corta desde una posicion la cantidad indicada de elemento. En este caso se le pide que empiece desde el final (-1) y que corte solo uno (segundo argumento, 1)
         }
 
